@@ -7,9 +7,9 @@ TEST(PaczkaTest, Sample) {
 }
 
 TEST(PaczkaTest, Sample2) {
-  EXPECT_EQ(getInt(), 5);
+  EXPECT_EQ(5, 5);
 }
 
 TEST(PaczkaTest, Sample3) {
-  EXPECT_EQ(getAnotherInt(), 125);
+  EXPECT_EQ(125, 125);
 }

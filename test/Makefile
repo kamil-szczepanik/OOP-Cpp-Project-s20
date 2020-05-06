@@ -1,5 +1,5 @@
 CXX := g++
-CXXFLAGS := -std=c++11 -g
+CXXFLAGS := -std=gnu++0x -g # -std=c++11
 
 BUILD_DIR := build
 OUTPUT_DIR := output
@@ -25,8 +25,7 @@ $(TARGET): $(TEST_O_FILES) $(TEST_H_FILES) $(O_FILES) $(LIBGTEST)
 # kompilacja biblioteki gtest
 
 $(LIBGTEST): | $(BUILD_DIR) $(BUILD_DIR)/$(OBJ_DIR) $(BUILD_DIR)/$(OUTPUT_DIR)
-	g++ -isystem $(GTEST_DIR)/include -I$(GTEST_DIR) -pthread -c ${GTEST_DIR}/src/gtest-all.cc -o build/obj/gtest-all.o
-	ar -rv build/libgtest.a build/obj/gtest-all.o
+	g++ -isystem $(GTEST_DIR)/include -I$(GTEST_DIR) -pthread -c ${GTEST_DIR}/src/gtest-all.cc -o build/libgtest.a
 
 # generacja plików .o dla plików źródłowych testów
 
@@ -40,7 +39,7 @@ $(BUILD_DIR)/$(OUTPUT_DIR):
 	cd build && mkdir $(OUTPUT_DIR)
 
 $(BUILD_DIR)/$(OBJ_DIR)/%.o: $(SOURCE_DIR)/%.cpp | $(BUILD_DIR) $(BUILD_DIR)/$(OBJ_DIR) $(BUILD_DIR)/$(OUTPUT_DIR)
-	$(CXX) $(CXXFLAGS) -g -c $< -o $@ -I$(GTEST_DIR)/include -I../$(SOURCE_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -I$(GTEST_DIR)/include -I../$(SOURCE_DIR)
 
 # generacja plików .o dla plików źródłowych programu
 
