@@ -13,6 +13,7 @@ SOURCES := $(wildcard $(SOURCE_DIR)/*.cpp)
 O_FILES := $(patsubst %.cpp,%.o, \
 					 $(subst $(SOURCE_DIR)/, $(BUILD_DIR)/$(OBJ_DIR)/, $(SOURCES)))
 H_FILES := $(wildcard $(SOURCE_DIR)/*.h)
+NON_CPP_H_FILES := # pliki .h niepowiązane z plikiem cpp
 
 build-and-run: $(TARGET)
 	$(BUILD_DIR)/$(OUTPUT_DIR)/$(TARGET)
@@ -22,7 +23,7 @@ test:
 
 .PHONY: test
 
-$(TARGET): $(O_FILES) $(H_FILES)
+$(TARGET): $(O_FILES) $(H_FILES) $(NON_CPP_H_FILES)
 	$(CXX) $(CXXFLAGS) -g -o $(BUILD_DIR)/$(OUTPUT_DIR)/$(TARGET) $^
 
 $(BUILD_DIR):
