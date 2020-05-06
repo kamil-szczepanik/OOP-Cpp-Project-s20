@@ -25,7 +25,7 @@ $(TARGET): $(TEST_O_FILES) $(TEST_H_FILES) $(O_FILES) $(LIBGTEST)
 # kompilacja biblioteki gtest
 
 $(LIBGTEST): | $(BUILD_DIR) $(BUILD_DIR)/$(OBJ_DIR) $(BUILD_DIR)/$(OUTPUT_DIR)
-	g++ -isystem $(GTEST_DIR)/include -L$(GTEST_DIR) -c ${GTEST_DIR}/src/gtest-all.cc -o build/libgtest.a
+	g++ -isystem $(GTEST_DIR)/include -I$(GTEST_DIR) -c ${GTEST_DIR}/src/gtest-all.cc -o build/libgtest.a
 
 # generacja plików .o dla plików źródłowych testów
 
@@ -39,7 +39,7 @@ $(BUILD_DIR)/$(OUTPUT_DIR):
 	cd build && mkdir $(OUTPUT_DIR)
 
 $(BUILD_DIR)/$(OBJ_DIR)/%.o: $(SOURCE_DIR)/%.cpp | $(BUILD_DIR) $(BUILD_DIR)/$(OBJ_DIR) $(BUILD_DIR)/$(OUTPUT_DIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@ -L$(GTEST_DIR)/include -L../$(SOURCE_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -I$(GTEST_DIR)/include -I../$(SOURCE_DIR)
 
 # generacja plików .o dla plików źródłowych programu
 
