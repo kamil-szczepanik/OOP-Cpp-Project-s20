@@ -19,7 +19,7 @@ SOURCES := $(subst ../$(SOURCE_DIR)/main.cpp,, $(wildcard ../$(SOURCE_DIR)/*.cpp
 O_FILES := $(patsubst %.cpp,%.o, $(subst ../$(SOURCE_DIR)/, ../$(BUILD_DIR)/$(OBJ_DIR)/, $(SOURCES)))
 
 $(TARGET): $(TEST_O_FILES) $(TEST_H_FILES) $(O_FILES) $(LIBGTEST)
-	$(CXX) $(CXXFLAGS) $^ $(GTEST_MAIN) -isystem $(GTEST_DIR)/include -o $(BUILD_DIR)/$(OUTPUT_DIR)/$(TARGET) -lpthread
+	$(CXX) $(CXXFLAGS) $^ $(GTEST_MAIN) -isystem $(GTEST_DIR)/include -o $(BUILD_DIR)/$(OUTPUT_DIR)/$(TARGET) -pthread
 	$(BUILD_DIR)/$(OUTPUT_DIR)/$(TARGET)
 
 # kompilacja biblioteki gtest
