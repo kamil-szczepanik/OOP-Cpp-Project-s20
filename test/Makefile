@@ -39,7 +39,8 @@ $(BUILD_DIR)/$(OUTPUT_DIR):
 	cd build && mkdir $(OUTPUT_DIR)
 
 $(BUILD_DIR)/$(OBJ_DIR)/%.o: $(SOURCE_DIR)/%.cpp | $(BUILD_DIR) $(BUILD_DIR)/$(OBJ_DIR) $(BUILD_DIR)/$(OUTPUT_DIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@ -I../$(SOURCE_DIR) -I$(GTEST_DIR)/include/
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -I$(GTEST_DIR)/include -I../$(SOURCE_DIR)
+
 # generacja plików .o dla plików źródłowych programu
 
 ../$(BUILD_DIR):
