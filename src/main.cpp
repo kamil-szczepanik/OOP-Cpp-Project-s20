@@ -3,7 +3,7 @@
 using namespace std;
 
 int main(int, char**) {
+    cout << "test";
 
-    cout << "cos" << endl;
     return 0;
 }
