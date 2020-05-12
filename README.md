@@ -1,4 +1,4 @@
-# PROI projekt
+# PROI projekt - baza przesyłek kurierskich
 
 ## Kompilacja
 
