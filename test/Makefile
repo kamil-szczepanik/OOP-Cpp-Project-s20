@@ -1,6 +1,6 @@
 CXX := g++
-CXXFLAGS := -std=gnu++0x -g # -std=c++11 -std=gnu++0x
-GTFLAGS := -lpthread
+CXXFLAGS := -std=gnu++0x -g
+GTFLAGS := -DGTEST_HAS_PTHREAD=0
 
 BUILD_DIR := build
 OUTPUT_DIR := output
