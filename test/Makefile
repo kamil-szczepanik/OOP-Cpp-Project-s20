@@ -20,13 +20,13 @@ SOURCES := $(subst ../$(SOURCE_DIR)/main.cpp,, $(wildcard ../$(SOURCE_DIR)/*.cpp
 O_FILES := $(patsubst %.cpp,%.o, $(subst ../$(SOURCE_DIR)/, ../$(BUILD_DIR)/$(OBJ_DIR)/, $(SOURCES)))
 
 $(TARGET): $(TEST_O_FILES) $(TEST_H_FILES) $(O_FILES) $(LIBGTEST)
-	$(CXX) $(CXXFLAGS) $^ $(GTEST_MAIN) -isystem $(GTEST_DIR)/include -o $(BUILD_DIR)/$(OUTPUT_DIR)/$(TARGET) $(GTFLAGS)
+	$(CXX) $(CXXFLAGS) $^ $(GTEST_MAIN) -isystem $(GTEST_DIR)/include -o $(BUILD_DIR)/$(OUTPUT_DIR)/$(TARGET)
 	$(BUILD_DIR)/$(OUTPUT_DIR)/$(TARGET)
 
 # kompilacja biblioteki gtest
 
 $(LIBGTEST): | $(BUILD_DIR) $(BUILD_DIR)/$(OBJ_DIR) $(BUILD_DIR)/$(OUTPUT_DIR)
-	g++ -isystem $(GTEST_DIR)/include -I$(GTEST_DIR) -c ${GTEST_DIR}/src/gtest-all.cc -o build/libgtest.a
+	g++  $(GTFLAGS) -isystem $(GTEST_DIR)/include -I$(GTEST_DIR) -c ${GTEST_DIR}/src/gtest-all.cc -o build/libgtest.a
 
 # generacja plików .o dla plików źródłowych testów
 
