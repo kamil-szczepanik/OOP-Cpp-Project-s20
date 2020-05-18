@@ -1,9 +1,11 @@
+#ifndef PACKAGE_H
+#define PACKAGE_H
+
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-class Courier;
 
 class Package
 {
@@ -47,3 +49,5 @@ class SpecialPackage : public Package
 private:
 	string description;
 };
+
+#endif // !PACKAGE_H
