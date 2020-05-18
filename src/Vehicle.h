@@ -1,4 +1,5 @@
-#pragma once
+#ifndef VEHICLE_H
+#define VEHICLE_H
 #include <iostream>
 
 using namespace std;
@@ -19,3 +20,4 @@ public:
 	Vehicle operator=(Vehicle F);
 };
 
+#endif // !VEHICLE_H

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef COURIER_H
+#define COURIER_H
+
 #include <iostream>
 #include <vector>
 #include "Vehicle.h"
@@ -32,3 +34,4 @@ public:
 	int get_vehicle_capacity();
 };
 
+#endif // !COURIER_H
