@@ -19,6 +19,7 @@ private:
 
 public:
 	Courier();
+	Courier(string name, string surname, Vehicle vehicle);
 	Courier(int id, string name, string surname, Vehicle vehicle);
 
 	int getId();

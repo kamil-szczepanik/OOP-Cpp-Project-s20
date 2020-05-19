@@ -13,10 +13,12 @@ private:
 
 public:
 	Vehicle();
+	Vehicle(double sizeX, double sizeY, double sizeZ);
 	Vehicle(int id, double sizeX, double sizeY, double sizeZ);	
 
 	int getId();
 	int getCapacity();
+	Vehicle& operator=(const Vehicle& v);
 };
 
 #endif //!VEHICLE_H

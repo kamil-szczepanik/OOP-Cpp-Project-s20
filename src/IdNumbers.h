@@ -20,7 +20,12 @@ class IdNumbers{
 public:
     template<typename T> static int getNewId(T o);
     static int addId(int typeId);
-
+    // Customowe id
+    template<typename T> static int setCustomId(T o, int id);
+    static int addCustomId(int typeId, int id);
+    // Do zastosowania w dekonstruktorze
+    template<typename T> static int rmId(T o, int id);
+    static int rmIdType(int typeId, int id);
 };
 
 
