@@ -6,7 +6,7 @@ vector<vector<int>> IdNumbers::IdNums{{},{},{},{}};
 // Dodawanie nowego numeru ID, numerowanie od 0
 int IdNumbers::addId(int typeId){
     IdNums[typeId].push_back(IdNums[typeId].size());
-    return IdNums[typeId].size();
+    return IdNums[typeId][IdNums[typeId].size() - 1];
 }
 
 // Odpowiedni vector w zależności od typu
