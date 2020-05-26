@@ -12,7 +12,7 @@ public:
 	Vehicle();
 	Vehicle(double sizeX, double sizeY, double sizeZ);
 	Vehicle(int id, double sizeX, double sizeY, double sizeZ);
-
+	friend class Courier;
 	int getId();
 	double getCapacity();
 	Vehicle& operator=(const Vehicle& v);
