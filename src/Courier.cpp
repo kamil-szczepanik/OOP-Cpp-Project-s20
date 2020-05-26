@@ -49,7 +49,7 @@ void Courier::addPackage(Package p)
     if (volume <= vehicle.getCapacity())
     {
         packages.push_back(p);
-        // vehicle.capacity -= volume;
+        vehicle.capacity -= volume;
 
     }
     //else throw "This package cannot fit in!";
@@ -63,6 +63,7 @@ void Courier::removePackage(Package p)
         if (p == packages[i])
         {
             packages.erase(packages.begin() + i);
+            vehicle.capacity += p.getSize()[0] * p.getSize()[1] * p.getSize()[2];
             break;
         }
     }
