@@ -45,6 +45,8 @@ public:
 	void setPrepaid(bool p);
 	bool getPrepaid();
 
+	bool operator==(const Package& p);
+
 };
 
 class StandardPackage : public Package
