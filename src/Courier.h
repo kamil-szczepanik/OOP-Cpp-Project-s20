@@ -25,12 +25,11 @@ public:
 	int getId();
 	string getName();
 	string getSurname();
-	string getFullName(); 
+	string getFullName();
 
 	void addPackage(Package p); // istnieje limit paczek w zaleznosci od wielkosci pojazdu
 	void removePackage(Package p);
-	void getPackages();
-	Package operator[](unsigned int which);
+	vector<Package> getPackages();
 
 	Vehicle getVehicle();
 };
