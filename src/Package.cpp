@@ -39,6 +39,7 @@ int Package::getId() {
 
 void Package::setWeight(double w) {
     weight = w;
+    autoSetCost();
 }
 
 double Package::getWeight() {
@@ -49,6 +50,7 @@ void Package::setDims(double dim1, double dim2, double dim3) {
     dims[0] = dim1;
     dims[1] = dim2;
     dims[2] = dim3;
+    autoSetCost();
 }
 
 double* Package::getDims() {
@@ -125,7 +127,7 @@ string Package::getPackageInfo() {
 
 void StandardPackage::autoSetCost()
 {
-    cost = BASE_COST + priority * PRIORITY_COST;
+    setCost(BASE_COST + priority * PRIORITY_COST);
 }
 
 string StandardPackage::getPackageInfo() {
@@ -142,7 +144,7 @@ void OversizePackage::autoSetCost()
 
     double overCost = (sizeOverLimit > weightOverLimit ? sizeOverLimit*DM3_COST : weightOverLimit*KG_COST);
 
-    cost = base + overCost;
+    setCost(base + overCost);
 }
 
 string OversizePackage::getPackageInfo() {

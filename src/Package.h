@@ -28,14 +28,15 @@ protected:
 	Package(int id, double weight, double dims[3], string sender, string senderAddr,
     	string recipient, string recipientAddr, bool prepaid=false, bool priority=false);
 
+	void setCost(double c);
 	virtual void autoSetCost()=0; // automatyczne obliczanie ceny wysłania paczki w zależności od rodzaju
 
 public:
 	constexpr static double BASE_COST = 10.0; // bazowy koszt paczki - koszt paczki standardowej
 	constexpr static double MAX_SIZE = 1000.0; // maksymalny rozmiar zwykłej paczki (w dm3)
 	constexpr static double MAX_WEIGHT = 100.0; // maksymalna waga zwykłej paczki (w kg)
-	constexpr static double DM3_COST = 10.0; // koszt 1 dm3 ponad maksymalny rozmiar
-	constexpr static double KG_COST = 10.0; // koszt 1 kg ponad maksymalną wagę
+	constexpr static double DM3_COST = 1.0; // koszt 1 dm3 ponad maksymalny rozmiar
+	constexpr static double KG_COST = 1.0; // koszt 1 kg ponad maksymalną wagę
 	constexpr static double PRIORITY_COST = 10.0; // dodatkowy koszt paczki priorytetowej
 
 	// metody get-set
@@ -45,7 +46,6 @@ public:
 	void setDims(double dim1, double dim2, double dim3);
 	double* getDims();
 	double getSize();
-	void setCost(double c);
 	double getCost();
 
 	void setSender(string s);
@@ -75,7 +75,7 @@ public:
 	// konstruktor paczki standardowej wykorzystujący konstruktor bazowy
 	StandardPackage(int id, double weight, double dims[3], string sender, string senderAddr,
     	string recipient, string recipientAddr, bool prepaid=false, bool priority=false) :
-		Package::Package(id, weight, dims, sender, senderAddr, recipient, recipientAddr, prepaid, priority) {};
+		Package::Package(id, weight, dims, sender, senderAddr, recipient, recipientAddr, prepaid, priority) {autoSetCost();};
 
 	virtual string getPackageInfo();
 };
@@ -90,7 +90,7 @@ public:
 	// konstruktor paczki standardowej wykorzystujący konstruktor bazowy
 	OversizePackage(int id, double weight, double dims[3], string sender, string senderAddr,
     	string recipient, string recipientAddr, bool prepaid=false, bool priority=false) :
-		Package::Package(id, weight, dims, sender, senderAddr, recipient, recipientAddr, prepaid, priority) {};
+		Package::Package(id, weight, dims, sender, senderAddr, recipient, recipientAddr, prepaid, priority) {autoSetCost();};
 
 	virtual string getPackageInfo();
 };
