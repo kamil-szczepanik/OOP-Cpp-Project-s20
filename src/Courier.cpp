@@ -15,9 +15,9 @@ Courier::Courier(string n, string s, Vehicle v) {
     vehicle = v;
 }
 
-// U¿ywaæ tylko do debuggingu
+// UÅ¼ywaÄ‡ tylko do debuggingu
 Courier::Courier(int id, string n, string s, Vehicle v) {
-    // Uwaga brak kontroli b³êdów w customowym id
+    // Uwaga brak kontroli bÅ‚Ä™dÃ³w w customowym id
     this->id = IdNumbers::setCustomId(*this, id);
     name = n;
     surname = s;
@@ -43,9 +43,9 @@ string Courier::getFullName()
     return name + " " + surname;
 }
 
-void Courier::addPackage(Package p)
+void Courier::addPackage(Package* p)
 {
-    double volume = p.getSize()[0] * p.getSize()[1] * p.getSize()[2];
+    double volume = p -> getSize();
     if (volume <= vehicle.getCapacity())
     {
         packages.push_back(p);
@@ -56,20 +56,20 @@ void Courier::addPackage(Package p)
     
 }
 
-void Courier::removePackage(Package p)
+void Courier::removePackage(Package* p)
 {
     for (unsigned int i = 0; i < packages.size(); i++)
     {
-        if (p == packages[i])
+        if (p -> getId() == packages[i] -> getId())
         {
             packages.erase(packages.begin() + i);
-            vehicle.capacity += p.getSize()[0] * p.getSize()[1] * p.getSize()[2];
+            vehicle.capacity += p->getSize();
             break;
         }
     }
 }
 
-vector<Package> Courier::getPackages()
+vector<Package*> Courier::getPackages()
 {
     return packages;
 }

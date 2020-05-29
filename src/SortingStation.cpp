@@ -27,11 +27,11 @@ vector<Courier> SortingStation::getCouriersList()
 	return couriers;
 }
 
-Package SortingStation::getPackage(int id)
+Package* SortingStation::getPackage(int id)
 {
 	for (unsigned int i = 0; i < packages.size(); i++)
 	{
-		if (packages[i].getId() == id)
+		if (packages[i]->getId() == id)
 		{
 			return packages[i];
 		}
@@ -39,7 +39,7 @@ Package SortingStation::getPackage(int id)
 	throw "No such package with this ID";
 }
 
-vector<Package> SortingStation::getPackagesList()
+vector<Package*> SortingStation::getPackagesList()
 {
 	return packages;
 }

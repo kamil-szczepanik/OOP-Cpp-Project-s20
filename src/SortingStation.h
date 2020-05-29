@@ -12,7 +12,7 @@ class SortingStation
 private:
     int id;
     vector<Courier> couriers;
-    vector<Package> packages;
+    vector<Package*> packages;
     vector<string> addresses;
 
 public:
@@ -20,8 +20,8 @@ public:
 
     Courier getCourier(int id);
     vector<Courier> getCouriersList();
-    Package getPackage(int id);
-    vector<Package> getPackagesList();
+    Package* getPackage(int id);
+    vector<Package*> getPackagesList();
 
     bool checkAddress(string address);
     void addAddress(string address);

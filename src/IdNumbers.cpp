@@ -33,7 +33,7 @@ template<> int IdNumbers::getNewId(Courier o){
     return IdNumbers::addId(0);
 }
 
-template<> int IdNumbers::getNewId(Package o){
+template<> int IdNumbers::getNewId(Package* o){
     return IdNumbers::addId(1);
 }
 
@@ -50,7 +50,7 @@ template<> int IdNumbers::setCustomId(Courier o, int id){
     return IdNumbers::addCustomId(0, id);
 }
 
-template<> int IdNumbers::setCustomId(Package o, int id){
+template<> int IdNumbers::setCustomId(Package* o, int id){
     return IdNumbers::addCustomId(1, id);
 }
 
@@ -67,7 +67,7 @@ template<> int IdNumbers::rmId(Courier o, int id){
     return IdNumbers::rmIdType(0, id);
 }
 
-template<> int IdNumbers::rmId(Package o, int id){
+template<> int IdNumbers::rmId(Package* o, int id){
     return IdNumbers::rmIdType(1, id);
 }
 

@@ -61,7 +61,7 @@ public:
 	bool getPriority();
 	void setPrepaid(bool p);
 	bool getPrepaid();
- 
+
 	virtual string getPackageInfo();
 };
 

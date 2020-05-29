@@ -14,7 +14,7 @@ class Courier
 private:
 	int id;
 	string name, surname;
-	vector<Package> packages;
+	vector<Package*> packages;
 	Vehicle vehicle;
 
 public:
@@ -27,9 +27,9 @@ public:
 	string getSurname();
 	string getFullName();
 
-	void addPackage(Package p); // istnieje limit paczek w zaleznosci od wielkosci pojazdu
-	void removePackage(Package p);
-	vector<Package> getPackages();
+	void addPackage(Package* p); // istnieje limit paczek w zaleznosci od wielkosci pojazdu
+	void removePackage(Package* p);
+	vector<Package*> getPackages();
 
 	Vehicle getVehicle();
 };
